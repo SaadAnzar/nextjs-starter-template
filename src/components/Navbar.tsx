@@ -10,7 +10,6 @@ import {
   Target,
   User,
 } from "lucide-react"
-import { useTheme } from "next-themes"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -23,22 +22,29 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Label } from "@/components/ui/label"
-import { Switch } from "@/components/ui/switch"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 const Navbar = () => {
   const pathname = usePathname()
-  const { setTheme, theme } = useTheme()
 
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">
       <div className="mx-auto flex h-16 w-full items-center justify-between space-x-4 px-4 sm:px-12">
         <div className="flex gap-6">
-          <Link href="/" className="flex items-center space-x-2">
-            <Target className="h-6 w-6" />
-            <span className="inline-block font-bold">Anzar</span>
-          </Link>
+          {pathname === "/" ? (
+            <div className="flex items-center space-x-2">
+              <Target className="h-6 w-6" />
+              <span className="inline-block font-bold">Anzar</span>
+            </div>
+          ) : (
+            <Link
+              href="/"
+              className="flex items-center space-x-2 hover:opacity-80"
+            >
+              <Target className="h-6 w-6" />
+              <span className="inline-block font-bold">Anzar</span>
+            </Link>
+          )}
           <nav className="flex gap-6">
             <Link
               href="/home"
