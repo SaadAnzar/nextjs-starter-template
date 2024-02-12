@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Github,
   LayoutDashboard,
@@ -9,10 +9,9 @@ import {
   LogOut,
   Target,
   User,
-} from "lucide-react"
+} from "lucide-react";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,11 +20,11 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { ThemeToggle } from "@/components/theme-toggle"
+} from "@/components/ui/dropdown-menu";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const Navbar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <header className="bg-background sticky top-0 z-40 w-full border-b">
@@ -33,7 +32,7 @@ const Navbar = () => {
         <div className="flex gap-6">
           {pathname === "/" ? (
             <div className="flex items-center space-x-2">
-              <Target className="h-6 w-6" />
+              <Target className="size-6" />
               <span className="inline-block font-bold">Anzar</span>
             </div>
           ) : (
@@ -41,31 +40,36 @@ const Navbar = () => {
               href="/"
               className="flex items-center space-x-2 hover:opacity-80"
             >
-              <Target className="h-6 w-6" />
+              <Target className="size-6" />
               <span className="inline-block font-bold">Anzar</span>
             </Link>
           )}
           <nav className="flex gap-6">
-            <Link
-              href="/home"
-              className={cn(
-                "hover:text-muted-foreground text-foreground flex items-center text-sm font-medium",
-                pathname === "/home" &&
-                  "text-muted-foreground cursor-not-allowed"
-              )}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className={cn(
-                "hover:text-muted-foreground text-foreground flex items-center text-sm font-medium",
-                pathname === "/about" &&
-                  "text-muted-foreground cursor-not-allowed"
-              )}
-            >
-              About
-            </Link>
+            {pathname === "/home" ? (
+              <p className="text-muted-foreground flex items-center text-sm font-medium">
+                Home
+              </p>
+            ) : (
+              <Link
+                href="/home"
+                className="hover:text-muted-foreground text-foreground flex items-center text-sm font-medium"
+              >
+                Home
+              </Link>
+            )}
+
+            {pathname === "/about" ? (
+              <p className="text-muted-foreground flex items-center text-sm font-medium">
+                About
+              </p>
+            ) : (
+              <Link
+                href="/about"
+                className="hover:text-muted-foreground text-foreground flex items-center text-sm font-medium"
+              >
+                About
+              </Link>
+            )}
           </nav>
         </div>
 
@@ -74,7 +78,7 @@ const Navbar = () => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button size="icon" variant="ghost">
-                  <User className="h-5 w-5" />
+                  <User className="size-5" />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent className="mr-2 w-56">
@@ -91,7 +95,7 @@ const Navbar = () => {
                 <DropdownMenuGroup>
                   <DropdownMenuItem asChild>
                     <Link href="/dashboard">
-                      <LayoutDashboard className="mr-2 h-4 w-4" />
+                      <LayoutDashboard className="mr-2 size-4" />
                       <span>Dashboard</span>
                     </Link>
                   </DropdownMenuItem>
@@ -101,13 +105,13 @@ const Navbar = () => {
                 <DropdownMenuGroup>
                   <DropdownMenuItem asChild>
                     <Link href="https://github.com/SaadAnzar" target="_blank">
-                      <Github className="mr-2 h-4 w-4" />
+                      <Github className="mr-2 size-4" />
                       <span>GitHub</span>
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link href="mailto:anzarhps@gmail.com" target="_blank">
-                      <LifeBuoy className="mr-2 h-4 w-4" />
+                      <LifeBuoy className="mr-2 size-4" />
                       <span>Support</span>
                     </Link>
                   </DropdownMenuItem>
@@ -116,7 +120,7 @@ const Navbar = () => {
 
                 <DropdownMenuItem asChild>
                   <Link href="/" className="cursor-pointer">
-                    <LogOut className="mr-2 h-4 w-4" />
+                    <LogOut className="mr-2 size-4" />
                     <span>Log out</span>
                   </Link>
                 </DropdownMenuItem>
@@ -126,7 +130,7 @@ const Navbar = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

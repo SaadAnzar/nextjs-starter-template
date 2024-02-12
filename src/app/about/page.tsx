@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="h-full w-full py-12 md:py-24 lg:py-32 xl:py-48">
+    <section className="size-full py-12 md:py-24 lg:py-32 xl:py-48">
       <div className="container px-4 md:px-6">
         <div className="grid items-center gap-6">
           <div className="flex flex-col justify-center space-y-4 text-center">
@@ -13,5 +13,5 @@ export default function About() {
         </div>
       </div>
     </section>
-  )
+  );
 }
