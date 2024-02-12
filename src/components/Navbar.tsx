@@ -49,9 +49,9 @@ const Navbar = () => {
             <Link
               href="/home"
               className={cn(
-                "text-muted-foreground hover:text-foreground flex items-center text-sm font-medium",
+                "hover:text-muted-foreground text-foreground flex items-center text-sm font-medium",
                 pathname === "/home" &&
-                  "hover:text-muted-foreground cursor-not-allowed opacity-60"
+                  "text-muted-foreground cursor-not-allowed"
               )}
             >
               Home
@@ -59,9 +59,9 @@ const Navbar = () => {
             <Link
               href="/about"
               className={cn(
-                "text-muted-foreground hover:text-foreground flex items-center text-sm font-medium",
+                "hover:text-muted-foreground text-foreground flex items-center text-sm font-medium",
                 pathname === "/about" &&
-                  "hover:text-muted-foreground cursor-not-allowed opacity-60"
+                  "text-muted-foreground cursor-not-allowed"
               )}
             >
               About
